@@ -1,0 +1,12 @@
+- step:
+    name: train-3dgs
+    image: dypo22.azurecr.io/agranado_tfg:latest  # Cambia este nombre por el de tu imagen local
+    command:
+      - pip install -r requirements.txt
+      - python prueba.py
+    environment: valohai-arquimea-ws2
+    mounts:
+      - source: /home/ws2/acaymo/valohai/data/3dgs  # Directorio local con tus datos de 3DGS (ajusta la ruta según corresponda)
+        destination: /data
+      - source: /home/ws2/acaymo/valohai/output/3dgs  # Donde se guardarán los resultados del entrenamiento
+        destination: /outputs
